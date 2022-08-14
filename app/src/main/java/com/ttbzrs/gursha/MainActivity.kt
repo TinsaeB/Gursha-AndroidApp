@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 
 private const val TAG = "MainActivity"
-private const val INISTAL_TIP_PERSENT = 10
+private const val INISTAL_TIP_PERSENT = 15
 
 private lateinit var etBaseAmount:EditText
 private lateinit var seekBarTip:SeekBar
@@ -92,8 +92,8 @@ class MainActivity : AppCompatActivity() {
         }
         val baseAmount = etBaseAmount.text.toString().toDouble()
         val tipPercent = seekBarTip.progress
-        val tipAmouny = baseAmount * tipPercent/100
-        val totalAmount = baseAmount + tipAmouny
-        tvTipAmount.text = "%.2f".format(tipAmouny)
+        val tipAmount = baseAmount * tipPercent/100
+        val totalAmount = baseAmount + tipAmount
+        tvTipAmount.text = "%.2f".format(tipAmount)
         tvTotalAmount.text = "%.2f".format(totalAmount)
     }
