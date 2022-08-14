@@ -11,7 +11,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-private const val TAG = "MainActivity"
+
 private const val INISTAL_TIP_PERSENT = 15
 
 private lateinit var etBaseAmount:EditText
@@ -22,6 +22,7 @@ private lateinit var tvTotalAmount: TextView
 private lateinit var tvTipDiscription: TextView
 
 class MainActivity : AppCompatActivity() {
+    private val TAG = this::class.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
