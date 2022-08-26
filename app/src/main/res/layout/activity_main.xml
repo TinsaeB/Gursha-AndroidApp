@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Tip"
+        android:text="@string/tip"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvPersentLable" />
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Total"
+        android:text="@string/total"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
@@ -57,10 +57,12 @@
         android:ems="8"
         android:hint="ስንት መጣብን?"
         android:inputType="numberDecimal"
+        android:textColorHint="#689F38"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvBaseLabel"
         app:layout_constraintStart_toEndOf="@+id/tvBaseLabel"
-        app:layout_constraintTop_toTopOf="@id/tvBaseLabel" />
+        app:layout_constraintTop_toTopOf="@id/tvBaseLabel"
+        android:autofillHints="" />
 
     <SeekBar
         android:id="@+id/seekBarTip"
@@ -89,6 +91,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalLabel"
         app:layout_constraintStart_toStartOf="@+id/tvTipAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalLabel"
+        android:text="@string/_0"
         tools:text="103.11" />
 
     <TextView
@@ -119,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="17dp"
-        android:text="ለ"
+        android:text="@string/ለ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSplitTitle" />
 
@@ -128,7 +131,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:hint="Nuber of people"
+        android:hint="0"
+        android:text="@string/_0"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/tvSplitTitle" />
@@ -139,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="60dp"
-        android:text="ሰው"
+        android:text="@string/human"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSplitTitle" />
 
@@ -148,18 +152,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="አንድ ሰው"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        android:text="@string/person"
+        app:layout_constraintEnd_toStartOf="@+id/tvAmount"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Amount"
+        android:text="@string/_0"
         app:layout_constraintEnd_toEndOf="@+id/tvNumbOfPeople"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/tvNumbOfPeople"
@@ -173,28 +177,30 @@
         android:text="ይድረስበት"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/tvAmount"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/ibAdd"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="18dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toStartOf="@+id/tvNumbOfPeople"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/tvSplitTitle"
-        app:srcCompat="@drawable/ic_baseline_exposure_neg_1_24" />
+        app:srcCompat="@drawable/ic_baseline_exposure_plus_1_24" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/ibSubtract"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toEndOf="@+id/tvNumbOfPeople"
         app:layout_constraintTop_toBottomOf="@+id/tvSplitTitle"
-        app:srcCompat="@drawable/ic_baseline_exposure_plus_1_24" />
+        app:srcCompat="@drawable/ic_baseline_exposure_neg_1_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

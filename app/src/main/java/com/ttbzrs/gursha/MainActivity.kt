@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -20,6 +21,10 @@ private lateinit var tvPersentLabel:TextView
 private lateinit var tvTipAmount: TextView
 private lateinit var tvTotalAmount: TextView
 private lateinit var tvTipDiscription: TextView
+private lateinit var tvAmount: TextView
+private lateinit var numberOfPeople: TextView
+private lateinit var ibAdd: ImageButton
+private lateinit var ibSub: ImageButton
 
 class MainActivity : AppCompatActivity() {
     private val TAG = this::class.simpleName
@@ -32,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDiscription = findViewById(R.id.tvTipDiscription)
+        tvAmount = findViewById(R.id.tvAmount)
+        numberOfPeople = findViewById(R.id.tvNumbOfPeople)
+        tvAmount.text = "0.0" // computeBillSplit(tvTotalAmount.text.toString().toInt(), numberOfPeople.text.toString().toInt()).toString()
+        ibAdd = findViewById(R.id.ibAdd)
+        ibSub = findViewById(R.id.ibSubtract)
 
         seekBarTip.progress = INISTAL_TIP_PERSENT
         tvPersentLabel.text = INISTAL_TIP_PERSENT.toString()
@@ -64,6 +74,20 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        ibAdd.setOnClickListener{
+
+            if (numberOfPeople.text.toString().toInt() < 10){
+                numberOfPeople.text = (numberOfPeople.text.toString().toInt() + 1).toString()
+            }
+           tvAmount.text = computeBillSplit(tvTotalAmount.text.toString().toDouble(), numberOfPeople.text.toString().toInt()).toString()
+        }
+        ibSub.setOnClickListener {
+            if (numberOfPeople.text.toString().toInt() > 0)numberOfPeople.text = (numberOfPeople.text.toString().toInt() - 1).toString()
+            tvAmount.text = computeBillSplit(tvTotalAmount.text.toString().toDouble(), numberOfPeople.text.toString().toInt()).toString()
+        }
+
+
     }
 
     private fun updateTipDiscription(tipPercent: Int) {
@@ -97,4 +121,13 @@ class MainActivity : AppCompatActivity() {
         val totalAmount = baseAmount + tipAmouny
         tvTipAmount.text = "%.2f".format(tipAmouny)
         tvTotalAmount.text = "%.2f".format(totalAmount)
+    }
+
+    private fun computeBillSplit(total: Double, numberOfPeople: Int) :Double{
+        if (total === 0.0 || numberOfPeople == 0){
+            return 0.0
+        }
+
+            return total/numberOfPeople
+
     }
